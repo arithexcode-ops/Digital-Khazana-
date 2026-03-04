@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Khazana - Premium Apps Free</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* SMOOTH SCROLLING */
+        html { scroll-behavior: smooth; }
+
+        /* CSS VARIABLES (DARK MODE - DEFAULT) */
+        :root {
+            --bg-color: #050505;
+            --card-bg: #121212;
+            --card-hover: #1a1a1a;
+            --gold: #FFD700;
+            --gold-dark: #ccac00;
+            --gold-glow: rgba(255, 215, 0, 0.3);
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --nav-bg: rgba(5, 5, 5, 0.85);
+            --border-color: rgba(255, 215, 0, 0.2);
+        }
+
+        /* CSS VARIABLES (LIGHT MODE) */
+        [data-theme="light"] {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --card-hover: #f0f0f0;
+            --gold: #d4af37;
+            --gold-dark: #b5952f;
+            --gold-glow: rgba(212, 175, 55, 0.3);
+            --text-main: #111111;
+            --text-muted: #555555;
+            --nav-bg: rgba(255, 255, 255, 0.9);
+            --border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* RESET & BASE STYLES */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; transition: background-color 0.4s, color 0.4s; overflow-x: hidden; }
+
+        /* HEADER / NAVBAR REDESIGN */
+        header {
+            background: var(--nav-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.4s, border-color 0.4s;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--text-main);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+       /* Logo se border hatane wala code */
+.logo img { 
+    width: 45px; 
+    height: 45px; 
+    object-fit: contain; 
+    border: none; /* Ye line border gayab karegi */
+    outline: none; 
+}
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* THEME TOGGLE BUTTON */
+        .theme-btn {
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 20px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            background: rgba(128, 128, 128, 0.1);
+        }
+
+        .theme-btn:hover { background: var(--gold-glow); color: var(--gold); }
+
+        .join-wa-btn {
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .join-wa-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); }
+
+        /* NAYA HERO SECTION CSS */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    background-color: var(--bg-color);
+    background-image: 
+        radial-gradient(circle at center, var(--gold-glow) 0%, transparent 60%),
+        linear-gradient(var(--border-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+    background-size: 100% 100%, 40px 40px, 40px 40px;
+    background-position: center center;
+    transition: background 0.4s;
+}
+
+.hero-badge {
+    background: rgba(255, 215, 0, 0.1);
+    color: var(--gold);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: 60px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #FFF 0%, var(--gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    max-width: 800px;
+}
+
+.hero p {
+    color: var(--text-muted);
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background: var(--gold); color: #000; padding: 15px 35px; border-radius: 50px; text-decoration: none;
+    font-weight: 700; font-size: 16px; transition: 0.3s; box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+    display: flex; align-items: center; gap: 10px;
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(255, 215, 0, 0.5); background: var(--gold-dark); color: #fff;}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.05); color: var(--text-main); padding: 15px 35px; border-radius: 50px;
+    text-decoration: none; font-weight: 600; font-size: 16px; transition: 0.3s; border: 1px solid var(--border-color);
+    display: flex; align-items: center; gap: 10px; backdrop-filter: blur(10px);
+}
+.btn-secondary:hover { background: rgba(255, 215, 0, 0.1); border-color: var(--gold); color: var(--gold);}
+        /* SCROLL DOWN BUTTON (Bouncing Arrow) */
+        .scroll-down {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            animation: bounce 2s infinite;
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 2px solid var(--border-color);
+            background: var(--card-bg);
+            transition: 0.3s;
+        }
+
+        .scroll-down:hover { background: var(--gold-glow); border-color: var(--gold); }
+        .scroll-down i { font-size: 20px; }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* MAIN APP GRID SECTION */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px 20px 20px; /* Padding for smooth scroll offset */
+            min-height: 50vh;
+        }
+
+        .section-title {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--gold);
+            padding-left: 15px;
+            color: var(--text-main);
+        }
+
+        .app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
+
+        /* APP CARD DESIGN */
+        .app-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .app-card:hover {
+            background-color: var(--card-hover);
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px var(--gold-glow);
+            transform: translateY(-5px);
+        }
+
+        .app-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .app-icon { width: 65px; height: 65px; border-radius: 15px; object-fit: cover; border: 2px solid var(--border-color); }
+        .app-title-area h3 { font-size: 19px; font-weight: 700; color: var(--gold); }
+        .app-version { font-size: 12px; color: var(--text-muted); background: rgba(128,128,128,0.1); padding: 3px 8px; border-radius: 6px; font-weight: 600;}
+        
+        .app-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 15px; }
+        .tag { font-size: 11px; background: var(--gold-glow); color: var(--gold-dark); padding: 5px 12px; border-radius: 20px; font-weight: 600; }
+        .app-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.5; }
+
+        .download-btn {
+            display: block; width: 100%; text-align: center; background: var(--gold); color: #000;
+            padding: 12px; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 15px; transition: 0.3s;
+        }
+
+        .download-btn:hover { background: var(--gold-dark); box-shadow: 0 0 15px var(--gold-glow); color: #fff; }
+
+        /* FOOTER */
+        footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--border-color); margin-top: 50px; color: var(--text-muted); font-size: 13px; }
+/* NAYA SEARCH BAR STYLES */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            position: relative;
+        }
+        .search-container input {
+            width: 100%;
+            padding: 16px 20px 16px 50px;
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-main);
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .search-container input:focus {
+            border-color: var(--gold);
+            box-shadow: 0 5px 20px var(--gold-glow);
+        }
+        .search-container i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 18px;
+        }
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 15px; }
+            .logo { font-size: 18px; }
+            .join-wa-btn span { display: none; } /* Mobile par sirf icon dikhega space bachane ke liye */
+        }
+    </style>
+</head>
+<body>
+
+   <!-- NAVBAR REDESIGNED -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="https://i.postimg.cc/SsQSy68F/20260303-151348.png" alt="Logo"> 
+                Digital Khazana
+            </a>
+            <div class="nav-right">
+                <button class="theme-btn" id="theme-toggle" title="Change Theme">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAYA PREMIUM HERO SECTION -->
+<section class="hero">
+    <div class="hero-badge">🔥 100% Free & Safe Mods</div>
+    <h1>Unlock The Power Of Premium Apps</h1>
+    <p>Aapke favorite video editors, streaming apps, aur secret tools ab bilkul muft. No annoying ads, no viruses, fully tested and unlocked for you.</p>
+    
+    <div class="hero-buttons">
+        <a href="#apps-section" class="btn-primary">
+            <i class="fas fa-box-open"></i> Explore Khazana
+        </a>
+        <!-- YAHAN APNA WHATSAPP LINK DALNA MAT BHOOLNA -->
+        <a href="https://whatsapp.com/channel/0029VbCGzvq9RZAfSkFMFf19" class="btn-secondary" target="_blank">
+            <i class="fab fa-whatsapp"></i> Join WhatsApp
+        </a>
+    </div>
+</section>
+
+   <!-- MAIN APPS AREA -->
+    <div class="container" id="apps-section">
+        
+        <!-- 🔥 NAYA SEARCH BAR YAHAN AAYEGA 🔥 -->
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Search for apps, editors, VPN...">
+        </div>
+        <div class="section-title">🔥 Latest Uploads</div>
+        
+        <div class="app-grid">
+
+            <!-- APP CARD 1 -->
+            <div class="app-card">
+                <div class="app-header">
+                    <img src="https://www.vecteezy.com/vector-art/13948546-capcut-logo-on-transparent-white-background" alt="CapCut" class="app-icon">
+                    <div class="app-title-area">
+                        <h3 class="app-title">CapCut VIP</h3>
+                        <span class="app-version">No VPN Edition</span>
+                    </div>
+                </div>
+                <div class="app-tags">
+                    <span class="tag"><i class="fas fa-globe"></i> No VPN Req</span>
+                    <span class="tag"><i class="fas fa-unlock"></i> All Effects</span>
+                </div>
+                <p class="app-desc">Pakistan/India mein bina VPN ke chalne wala CapCut. No Network Error. Sab effects unlocked.</p>
+                <a href="#" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
+            </div>
+
+            <!-- APP CARD 2 -->
+            <div class="app-card">
+                <div class="app-header">
+                    <img src="https://play-lh.googleusercontent.com/1GZbZzG-_1s_4rJ9U5wDq90Y_4y-Q1E5Gk1W1rZ5_S2E6S_mC1H8m_9Bq8G4n7F3Hw=w240-h480-rw" alt="KineMaster" class="app-icon">
+                    <div class="app-title-area">
+                        <h3 class="app-title">KineMaster Pro</h3>
+                        <span class="app-version">v7.0 Premium</span>
+                    </div>
+                </div>
+                <div class="app-tags">
+                    <span class="tag"><i class="fas fa-droplet-slash"></i> No Watermark</span>
+                    <span class="tag"><i class="fas fa-video"></i> 4K Export</span>
+                </div>
+                <p class="app-desc">Editing ka baap! Saare premium effects, 4K export, aur assets bilkul free. Bina kisi logo ke edit karein.</p>
+                <a href="#" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
+            </div>
+
+            <!-- APP CARD 3 (MOVIEBOX EXAMPLE) -->
+            <div class="app-card">
+                <div class="app-header">
+                    <img src="https://i.pinimg.com/736x/89/54/6f/89546fb67c6eb2fb2df082bcafb8e5c8.jpg" alt="MovieBox" class="app-icon">
+                    <div class="app-title-area">
+                        <h3 class="app-title">MovieBox Pro</h3>
+                        <span class="app-version">VIP Unlocked</span>
+                    </div>
+                </div>
+                <div class="app-tags">
+                    <span class="tag"><i class="fas fa-film"></i> HD Movies</span>
+                    <span class="tag"><i class="fas fa-ban"></i> No Ads</span>
+                </div>
+                <p class="app-desc">Netflix, Prime aur saari naye movies/series HD mein bilkul free dekhein. Customized by Digital Khazana.</p>
+                <a href="#" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
+            </div>
+
+        </div> <!-- Grid End -->
+    </div> <!-- Container End -->
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Digital Khazana. All rights reserved.</p>
+        <p style="margin-top: 8px; opacity: 0.5;">Disclaimer: This website is for educational purposes only. By Bilal Baloch.</p>
+    </footer>
+
+    <!-- JAVASCRIPT FOR DARK/LIGHT MODE TOGGLE -->
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        const icon = themeToggle.querySelector('i');
+
+        // Check user's saved preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            htmlElement.setAttribute('data-theme', savedTheme);
+            if(savedTheme === 'light') {
+                icon.classList.replace('fa-sun', 'fa-moon');
+            }
+        }
+
+        // Toggle Theme on Click
+        themeToggle.addEventListener('click', () => {
+            if (htmlElement.getAttribute('data-theme') === 'dark') {
+                htmlElement.setAttribute('data-theme', 'light');
+                icon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.setAttribute('data-theme', 'dark');
+                icon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+        // LIVE SEARCH FUNCTION (Magic)
+        const searchInput = document.getElementById('searchInput');
+        const appCards = document.querySelectorAll('.app-card');
+
+        searchInput.addEventListener('keyup', function() {
+            let filter = searchInput.value.toLowerCase();
+            
+            appCards.forEach(card => {
+                let title = card.querySelector('.app-title').innerText.toLowerCase();
+                if(title.includes(filter)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
